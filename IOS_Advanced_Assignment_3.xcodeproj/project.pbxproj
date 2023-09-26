@@ -11,6 +11,11 @@
 		A19690942AC261FE0053B4FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690932AC261FE0053B4FF /* ContentView.swift */; };
 		A19690962AC262020053B4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690952AC262020053B4FF /* Assets.xcassets */; };
 		A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690982AC262020053B4FF /* Preview Assets.xcassets */; };
+		A19690A32AC27C8F0053B4FF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690A22AC27C8F0053B4FF /* MapView.swift */; };
+		A19690A52AC27CA10053B4FF /* DamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690A42AC27CA10053B4FF /* DamDetailView.swift */; };
+		A19690A72AC27CB40053B4FF /* DamData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690A62AC27CB40053B4FF /* DamData.swift */; };
+		A19690A92AC27CFE0053B4FF /* DamAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690A82AC27CFE0053B4FF /* DamAnnotation.swift */; };
+		A19690AB2AC27D210053B4FF /* DamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690AA2AC27D210053B4FF /* DamViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		A19690932AC261FE0053B4FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A19690952AC262020053B4FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19690982AC262020053B4FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A19690A22AC27C8F0053B4FF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		A19690A42AC27CA10053B4FF /* DamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamDetailView.swift; sourceTree = "<group>"; };
+		A19690A62AC27CB40053B4FF /* DamData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamData.swift; sourceTree = "<group>"; };
+		A19690A82AC27CFE0053B4FF /* DamAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamAnnotation.swift; sourceTree = "<group>"; };
+		A19690AA2AC27D210053B4FF /* DamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,9 @@
 		A19690902AC261FE0053B4FF /* IOS_Advanced_Assignment_3 */ = {
 			isa = PBXGroup;
 			children = (
+				A19690A12AC27C730053B4FF /* ViewModel */,
+				A19690A02AC27C6D0053B4FF /* Model */,
+				A196909F2AC27C680053B4FF /* View */,
 				A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */,
 				A19690932AC261FE0053B4FF /* ContentView.swift */,
 				A19690952AC262020053B4FF /* Assets.xcassets */,
@@ -65,6 +78,32 @@
 				A19690982AC262020053B4FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A196909F2AC27C680053B4FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A19690A22AC27C8F0053B4FF /* MapView.swift */,
+				A19690A42AC27CA10053B4FF /* DamDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A19690A02AC27C6D0053B4FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A19690A62AC27CB40053B4FF /* DamData.swift */,
+				A19690A82AC27CFE0053B4FF /* DamAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A19690A12AC27C730053B4FF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A19690AA2AC27D210053B4FF /* DamViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +177,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19690942AC261FE0053B4FF /* ContentView.swift in Sources */,
+				A19690A32AC27C8F0053B4FF /* MapView.swift in Sources */,
 				A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */,
+				A19690A92AC27CFE0053B4FF /* DamAnnotation.swift in Sources */,
+				A19690A72AC27CB40053B4FF /* DamData.swift in Sources */,
+				A19690AB2AC27D210053B4FF /* DamViewModel.swift in Sources */,
+				A19690A52AC27CA10053B4FF /* DamDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
