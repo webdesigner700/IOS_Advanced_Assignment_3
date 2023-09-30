@@ -10,9 +10,12 @@ import SwiftUI
 @main
 struct IOS_Advanced_Assignment_3App: App {
     
+    @StateObject private var activityModelData = ActivityModelData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(activityModelData)
         }
     }
 }

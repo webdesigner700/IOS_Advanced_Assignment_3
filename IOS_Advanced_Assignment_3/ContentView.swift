@@ -13,7 +13,20 @@ struct ContentView: View {
     
     var body: some View {
         
-        Text("Hello World")
+        TabView() {
+            
+            MapView()
+                .tabItem {
+                    Image(systemName: "map")
+                    Text("map")
+                }
+            
+            ItineraryList()
+                .tabItem {
+                    Image(systemName: "location.circle.fill")
+                    Text("Itinerary")
+                }
+        }
     }
 }
 
@@ -21,5 +34,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ActivityModelData())
     }
 }
