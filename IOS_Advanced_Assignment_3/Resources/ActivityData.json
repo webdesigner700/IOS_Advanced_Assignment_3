@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Harbour Bridge",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "id": 1001,
+        "inItinerary": false,
+        "coordinates": {
+            "longitude": 151.21077,
+            "latitude": -33.85216
+        },
+        "imageName": "harbourBridge"
+    },
+    
+    {
+        "name": "Opera House",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "id": 1002,
+        "inItinerary": false,
+        "coordinates": {
+            "longitude": 151.21528,
+            "latitude": -33.85660
+        },
+        "imageName": "operaHouse"
+    },
+    
+    {
+        "name": "Darling Harbour",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "id": 1003,
+        "inItinerary": false,
+        "coordinates": {
+            "longitude": 151.20092,
+            "latitude": -33.87471
+        },
+        "imageName": "darlingHarbour"
+    },
+    
+    {
+        "name": "Taronga Zoo",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "id": 1004,
+        "inItinerary": false,
+        "coordinates": {
+            "longitude": 151.24134,
+            "latitude": -33.84331
+        },
+        "imageName": "tarongaZoo"
+    },
+    
+    {
+        "name": "Hyde Park",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "id": 1005,
+        "inItinerary": false,
+        "coordinates": {
+            "longitude": 151.21129,
+            "latitude": -33.87295
+        },
+        "imageName": "hydePark"
+    }
+]

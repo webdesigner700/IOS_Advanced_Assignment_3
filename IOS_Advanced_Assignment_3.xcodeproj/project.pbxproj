@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13C748F2AC7C4BF00494410 /* ActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = A13C748E2AC7C4BF00494410 /* ActivityData.json */; };
 		A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */; };
 		A19690942AC261FE0053B4FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690932AC261FE0053B4FF /* ContentView.swift */; };
 		A19690962AC262020053B4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690952AC262020053B4FF /* Assets.xcassets */; };
 		A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690982AC262020053B4FF /* Preview Assets.xcassets */; };
+		A19690B12AC30C590053B4FF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690B02AC30C590053B4FF /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A13C748E2AC7C4BF00494410 /* ActivityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityData.json; sourceTree = "<group>"; };
 		A196908E2AC261FE0053B4FF /* IOS_Advanced_Assignment_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_Advanced_Assignment_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Advanced_Assignment_3App.swift; sourceTree = "<group>"; };
 		A19690932AC261FE0053B4FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A19690952AC262020053B4FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19690982AC262020053B4FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A19690B02AC30C590053B4FF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A13C748D2AC7C4A800494410 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A13C748E2AC7C4BF00494410 /* ActivityData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A19690852AC261FE0053B4FF = {
 			isa = PBXGroup;
 			children = (
@@ -51,11 +63,12 @@
 		A19690902AC261FE0053B4FF /* IOS_Advanced_Assignment_3 */ = {
 			isa = PBXGroup;
 			children = (
+				A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */,
+				A19690932AC261FE0053B4FF /* ContentView.swift */,
 				A19690A12AC27C730053B4FF /* ViewModel */,
 				A19690A02AC27C6D0053B4FF /* Model */,
 				A196909F2AC27C680053B4FF /* View */,
-				A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */,
-				A19690932AC261FE0053B4FF /* ContentView.swift */,
+				A13C748D2AC7C4A800494410 /* Resources */,
 				A19690952AC262020053B4FF /* Assets.xcassets */,
 				A19690972AC262020053B4FF /* Preview Content */,
 			);
@@ -87,6 +100,7 @@
 		A19690A12AC27C730053B4FF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A19690B02AC30C590053B4FF /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */,
+				A13C748F2AC7C4BF00494410 /* ActivityData.json in Resources */,
 				A19690962AC262020053B4FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +178,7 @@
 			files = (
 				A19690942AC261FE0053B4FF /* ContentView.swift in Sources */,
 				A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */,
+				A19690B12AC30C590053B4FF /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
