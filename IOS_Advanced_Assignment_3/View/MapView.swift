@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import MapKit
+
+// now implement MapView with a map showing all the Sydney Activities
 
 struct MapView: View {
     
@@ -13,8 +16,17 @@ struct MapView: View {
     
     var body: some View {
         
-        List(activityModelData.Activities) { Activity in
-            Text(Activity.name)
+        NavigationView {
+            
+            Map(coordinateRegion: $activityModelData.region, annotationItems: activityModelData.annotations) { item in
+                MapAnnotation(coordinate: item.coordinate) {
+                    NavigationLink( destination: ActivityDetail()) {
+                        Text(item.name)
+                    }
+                }
+                
+            }
+            .navigationTitle("Sydney Activities")
         }
     }
 }
