@@ -65,7 +65,7 @@ struct PersistenceController {
     // This function is used to save a station to the Itinerary
     func saveActivity(activity: Activity) {
         
-        
+        // Created a Data Model
     }
     
 }
