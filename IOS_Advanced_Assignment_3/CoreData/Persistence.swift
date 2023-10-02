@@ -62,10 +62,74 @@ struct PersistenceController {
     }
     
     
-    // This function is used to save a station to the Itinerary
+    // This function is used to save an activity to the Itinerary
     func saveActivity(activity: Activity) {
         
-        // Created a Data Model
+        let context = container.viewContext // Get the view context
+        let itineraryActivity = ItineraryActivity(context: context)
+        itineraryActivity.id = Int32(activity.id)
+        itineraryActivity.name = activity.name
+        itineraryActivity.city = activity.city
+        itineraryActivity.state = activity.state
+        
+        do {
+            try context.save() // Save changes to the context
+        }
+        catch {
+            print("Error saving Itinerary activity \(error)") // Print the error if saving the itinerary activity is unsuccessful
+        }
+    }
+    
+    // This function is used to delete an activity from the Itinerary
+    func deleteActivity(activity: Activity) {
+        
+        let context = container.viewContext // Get the view Context
+        let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest() // create a fetch request
+        fetchRequest.predicate = NSPredicate(format: "id = %d", activity.id) // Add a predicate to filter the activities in the CoreData stack by the activity id
+        
+        do {
+            let itineraryActivities = try context.fetch(fetchRequest) // Fetch all the itinerary activities
+            if let itineraryActivity = itineraryActivities.first {
+                context.delete(itineraryActivity) // Delete the found activity
+                try context.save() // save changes to the context
+            }
+        } catch {
+            print("Error deleting the itinerary activity: \(error)") // print an error if unable to delete the itinerary activity
+        }
+    }
+    
+    // This function is used to fewtch all the itinerary activities in the CoreData stack
+    func fetchActivities() -> [ItineraryActivity] {
+        
+        let context = container.viewContext
+        do {
+            
+            let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest() // Create fetch request
+            let itineraryActivities = try context.fetch(fetchRequest) // Fetch all the itinerary activities
+            return itineraryActivities
+        } catch {
+            print("Error fetching the itinerary activities: \(error)")
+        }
+        return [] // Return and empty array if there is no itinerary activity
+    }
+    
+    // This function is used to check whether an activity is in the Itinerary activities list
+    func isInItinerary(activity: Activity) -> Bool {
+        
+        let context = container.viewContext // get the view context
+        let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest() // create a fetch request
+        fetchRequest.predicate = NSPredicate(format: "id = %d", activity.id) // Add a predicate to filter the activities in the CoreData stack by the activity id
+        
+        do {
+            
+            let itineraryActivities = try context.fetch(fetchRequest) // Fetch all the itinerary activities
+            if let itineraryActivity = itineraryActivities.first {
+                return true
+            }
+        } catch {
+            print("Error checking the itinerary activity \(error)")
+        }
+        return false // Returns false if the itinerary activity is not found
     }
     
 }
