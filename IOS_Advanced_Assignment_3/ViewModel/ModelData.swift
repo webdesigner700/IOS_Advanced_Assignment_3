@@ -18,6 +18,14 @@ final class ActivityModelData: ObservableObject {
     
     @Published var annotations: [ActivityAnnotation] = []
     
+    private var viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
+    
+    //@Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
+    
+    @Published var itineraryActivities = Set<Activity>()
+    
+    // The above published variable "itineraryActivities" is stored in the presistent CoreData Stack.
+    
     //self.Activities.map { activity in ... } applies a closure to each element in the Activities array.
     //For each activity in Activities, it creates an ActivityAnnotation object by passing the activity to the ActivityAnnotation initializer.
     //The resulting array of ActivityAnnotation objects is assigned to self.annotations.
@@ -27,6 +35,56 @@ final class ActivityModelData: ObservableObject {
         self.annotations = self.Activities.map{ activity in
             
             return ActivityAnnotation(activity: activity)
+        }
+    }
+    
+    
+    // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not. 
+    func isInItinerary(activity: Activity) -> Bool {
+        return itineraryActivities.contains(activity)
+    }
+    
+    // When the button "Add to Itinerary" is pressed, this function is used to add or remove the activity from the published variable itineraryActivities
+    func toggleInItinerary(activity: Activity) {
+        
+        if itineraryActivities.contains(activity) {
+            itineraryActivities.remove(activity)
+            setActivity(activity: activity, isInItinerary: false)
+        }
+        else {
+            itineraryActivities.insert(activity)
+            setActivity(activity: activity, isInItinerary: true)
+        }
+    }
+    
+    func setActivity(activity: Activity, isInItinerary: Bool) {
+        
+        if isInItinerary {
+            // Add to the itinerary
+            let itineraryActivity = ItineraryActivity(context: viewContext)
+            itineraryActivity.id = Int32(activity.id)
+            itineraryActivity.name = activity.name
+            itineraryActivity.city = activity.city
+            itineraryActivity.state = activity.state
+            itineraryActivity.addTime = Date()
+        }
+        else {
+            // Remove from the itinerary
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ItineraryActivity")
+            fetchRequest.predicate = NSPredicate(format: "id == %d", Int32(activity.id))
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            do {
+                try viewContext.execute(deleteRequest)
+            } catch {
+                print("Error deleting the activity from the Itinerary \(error)")
+            }
+        }
+        do {
+            try viewContext.save()
+        }
+        catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }

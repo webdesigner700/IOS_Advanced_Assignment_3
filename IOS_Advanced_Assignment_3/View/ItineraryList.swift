@@ -6,15 +6,56 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ItineraryList: View {
+    
+    @EnvironmentObject var activityModelData: ActivityModelData
+    
+    @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \ItineraryActivity.addTime, ascending: false)], // Sorting Itinerary Activities by addtime in descending order
+        animation: .default)
+    
+    private var itineraryActivities: FetchedResults<ItineraryActivity> // Fetching the itinerary activities from CoreData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView {
+            List {
+                ForEach(itineraryActivities) { activity in
+                    VStack(alignment: .leading) {
+                        Text(activity.name ?? "")
+                            .font(.headline)
+                        Text(activity.city ?? "")
+                            .font(.subheadline)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .navigationBarTitle("Favorite Stations")
+        }
+        
+    }
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { itineraryActivities[$0] }.forEach(viewContext.delete)
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
 }
 
 struct ItineraryList_Previews: PreviewProvider {
     static var previews: some View {
         ItineraryList()
+            .environmentObject(ActivityModelData())
     }
 }

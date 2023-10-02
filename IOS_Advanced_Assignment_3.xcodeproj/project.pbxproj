@@ -19,7 +19,7 @@
 		A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690982AC262020053B4FF /* Preview Assets.xcassets */; };
 		A19690B12AC30C590053B4FF /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690B02AC30C590053B4FF /* ModelData.swift */; };
 		A1AC8D552ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8D532ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld */; };
-		A1AC8D582ACA64D2004ED19B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8D572ACA64D2004ED19B /* Persistence.swift */; };
+		A1AC8D582ACA64D2004ED19B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8D572ACA64D2004ED19B /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		A19690982AC262020053B4FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A19690B02AC30C590053B4FF /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A1AC8D542ACA63AC004ED19B /* ItineraryActivities.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItineraryActivities.xcdatamodel; sourceTree = "<group>"; };
-		A1AC8D572ACA64D2004ED19B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		A1AC8D572ACA64D2004ED19B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A1AC8D532ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld */,
-				A1AC8D572ACA64D2004ED19B /* Persistence.swift */,
+				A1AC8D572ACA64D2004ED19B /* PersistenceController.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				A19690B12AC30C590053B4FF /* ModelData.swift in Sources */,
 				A171DBD62AC7E713009258F5 /* ActivityDetail.swift in Sources */,
 				A1AC8D552ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld in Sources */,
-				A1AC8D582ACA64D2004ED19B /* Persistence.swift in Sources */,
+				A1AC8D582ACA64D2004ED19B /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
