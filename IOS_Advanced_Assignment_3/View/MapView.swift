@@ -20,13 +20,29 @@ struct MapView: View {
             
             Map(coordinateRegion: $activityModelData.region, annotationItems: activityModelData.annotations) { item in
                 MapAnnotation(coordinate: item.coordinate) {
-                    NavigationLink( destination: ActivityDetail()) {
-                        Text(item.name)
+                    NavigationLink( destination: ActivityDetail(activity: item.activity)) {
+                        VStack {
+                            item.image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 44, height: 44)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                            Text(item.name)
+                                .font(.caption)
+                                .bold()
+                                .foregroundColor(.primary)
+                                .padding(.horizontal, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)) // Semi-transparent white background
+                                )
+                        }
                     }
                 }
                 
             }
             .navigationTitle("Sydney Activities")
+            // Add task.aawait with findWithinVisibleRegion
         }
     }
 }
