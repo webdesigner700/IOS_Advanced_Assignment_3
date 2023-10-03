@@ -10,9 +10,11 @@ import Combine
 import MapKit
 import CoreData
 
-final class ActivityModelData: ObservableObject {
+final class ModelData: ObservableObject {
     
     @Published var Activities: [Activity] = load("ActivityData.json")
+    
+    @Published var Accomodations: [Accomodation] = load("AccomodationData.json")
     
     @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: .init(latitude: -33.8837, longitude: 151.2006), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
@@ -20,19 +22,11 @@ final class ActivityModelData: ObservableObject {
     
     private var viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
     
-    //@Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
-    
     @Published var itineraryActivities = Set<Activity>()
-    
-    // The above published variable "itineraryActivities" is stored in the presistent CoreData Stack.
-    
-    //self.Activities.map { activity in ... } applies a closure to each element in the Activities array.
-    //For each activity in Activities, it creates an ActivityAnnotation object by passing the activity to the ActivityAnnotation initializer.
-    //The resulting array of ActivityAnnotation objects is assigned to self.annotations.
     
     init() {
         
-        self.annotations = self.Activities.map{ activity in
+        self.annotations = self.Activities.map { activity in
             
             return ActivityAnnotation(activity: activity)
         }

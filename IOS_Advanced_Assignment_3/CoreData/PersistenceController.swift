@@ -9,14 +9,27 @@ import CoreData // Import the CoreData framework
 import Foundation
 
 
-/*class DataController: ObservableObject {
+/*struct PersistenceController {
     
-    let container = NSPersistentContainer(name: "ItineraryActivities") // The container for the CoreData storage is initialized
+    static let shared = PersistenceController()
     
-    init() {
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                print("Core Data failed to load \(error.localizedDescription)")
+    private let persistentContainer: NSPersistentContainer
+    
+    var viewContext: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
+    
+    var newContext: NSManagedObjectContext {
+        persistentContainer.newBackgroundContext()
+    }
+    
+    private init() {
+        
+        persistentContainer = NSPersistentContainer(name: "ItineraryActivities")
+        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+        persistentContainer.loadPersistentStores {_, error in
+            if let error {
+                fatalError("Unable to load store with error: \(error)")
             }
         }
     }

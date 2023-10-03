@@ -10,7 +10,7 @@ import CoreData
 
 struct ItineraryList: View {
     
-    @EnvironmentObject var activityModelData: ActivityModelData
+    @EnvironmentObject var activityModelData: ModelData
     
     @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
     
@@ -56,6 +56,6 @@ struct ItineraryList: View {
 struct ItineraryList_Previews: PreviewProvider {
     static var previews: some View {
         ItineraryList()
-            .environmentObject(ActivityModelData())
+            .environmentObject(ModelData())
     }
 }

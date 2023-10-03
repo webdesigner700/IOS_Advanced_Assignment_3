@@ -10,17 +10,13 @@ import SwiftUI
 @main
 struct IOS_Advanced_Assignment_3App: App {
     
-    let persistenceController = PersistenceController.shared
-    
-    //@StateObject private var dataController = DataController()
-    
-    @StateObject private var activityModelData = ActivityModelData()
+    @StateObject private var modelData = ModelData()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(activityModelData)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(ModelData())
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
                 //.environment(\.managedObjectContext, dataController.container.viewContext) // Sets the environment value of the specified key path to the given value. In this context. the key path leads to the managed object context and the value is the viewContext of the container initialized in the DataController class
         }
     }

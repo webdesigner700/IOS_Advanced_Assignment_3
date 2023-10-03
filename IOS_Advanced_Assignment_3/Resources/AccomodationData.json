@@ -1,0 +1,71 @@
+[
+    {
+        "name": "The Star",
+        "city": "Sydney",
+        "id": 1001,
+        "rating": 4.1,
+        "price": 323,
+        "inFavorites": false,
+        "coordinates": {
+            "longitude": 151.19499,
+            "latitude": -33.86818
+        },
+        "imageName": "theStar"
+    },
+    
+    {
+        "name": "Crown Towers",
+        "city": "Sydney",
+        "id": 1002,
+        "rating": 4.4,
+        "price": 698,
+        "inFavorites": false,
+        "coordinates": {
+            "longitude": 151.20102,
+            "latitude": -33.86179
+        },
+        "imageName": "crownTowers"
+    },
+    
+    {
+        "name": "Park Hyatt",
+        "city": "Sydney",
+        "id": 1003,
+        "rating": 4.6,
+        "price": 1326,
+        "inFavorites": false,
+        "coordinates": {
+            "longitude": 151.20932,
+            "latitude": -33.85560
+        },
+        "imageName": "parkHyatt"
+    },
+    
+    {
+        "name": "Sheraton Grand",
+        "city": "Sydney",
+        "id": 1004,
+        "rating": 4.4,
+        "price": 347,
+        "inFavorites": false,
+        "coordinates": {
+            "longitude": 151.20972,
+            "latitude": -33.87138
+        },
+        "imageName": "sheratonGrand"
+    },
+    
+    {
+        "name": "Novotel",
+        "city": "Sydney",
+        "id": 1005,
+        "rating": 4.2,
+        "price": 234,
+        "inFavorites": false,
+        "coordinates": {
+            "longitude": 151.20303,
+            "latitude": -33.88144
+        },
+        "imageName": "novotel"
+    }
+]

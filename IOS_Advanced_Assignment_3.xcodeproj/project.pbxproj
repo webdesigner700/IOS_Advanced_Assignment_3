@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10F7D342ACBACBD00B951AA /* AccomodationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D332ACBACBD00B951AA /* AccomodationList.swift */; };
+		A10F7D362ACBBA3100B951AA /* AccomodationData.json in Resources */ = {isa = PBXBuildFile; fileRef = A10F7D352ACBBA3100B951AA /* AccomodationData.json */; };
+		A10F7D382ACBBA4100B951AA /* Accomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D372ACBBA4100B951AA /* Accomodation.swift */; };
+		A10F7D3A2ACBC23300B951AA /* AccomodationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */; };
 		A13C748F2AC7C4BF00494410 /* ActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = A13C748E2AC7C4BF00494410 /* ActivityData.json */; };
 		A13C74912AC7C54900494410 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C74902AC7C54900494410 /* MapView.swift */; };
 		A13C74932AC7C59200494410 /* ItineraryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C74922AC7C59200494410 /* ItineraryList.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A10F7D332ACBACBD00B951AA /* AccomodationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationList.swift; sourceTree = "<group>"; };
+		A10F7D352ACBBA3100B951AA /* AccomodationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AccomodationData.json; sourceTree = "<group>"; };
+		A10F7D372ACBBA4100B951AA /* Accomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accomodation.swift; sourceTree = "<group>"; };
+		A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationAnnotation.swift; sourceTree = "<group>"; };
 		A13C748E2AC7C4BF00494410 /* ActivityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityData.json; sourceTree = "<group>"; };
 		A13C74902AC7C54900494410 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A13C74922AC7C59200494410 /* ItineraryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryList.swift; sourceTree = "<group>"; };
@@ -54,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				A13C748E2AC7C4BF00494410 /* ActivityData.json */,
+				A10F7D352ACBBA3100B951AA /* AccomodationData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -104,6 +113,7 @@
 				A13C74902AC7C54900494410 /* MapView.swift */,
 				A13C74922AC7C59200494410 /* ItineraryList.swift */,
 				A171DBD52AC7E713009258F5 /* ActivityDetail.swift */,
+				A10F7D332ACBACBD00B951AA /* AccomodationList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +123,8 @@
 			children = (
 				A13C74942AC7C63B00494410 /* Activity.swift */,
 				A171DBD32AC7D7A7009258F5 /* ActivityAnnotation.swift */,
+				A10F7D372ACBBA4100B951AA /* Accomodation.swift */,
+				A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10F7D362ACBBA3100B951AA /* AccomodationData.json in Resources */,
 				A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */,
 				A13C748F2AC7C4BF00494410 /* ActivityData.json in Resources */,
 				A19690962AC262020053B4FF /* Assets.xcassets in Resources */,
@@ -205,15 +218,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10F7D342ACBACBD00B951AA /* AccomodationList.swift in Sources */,
 				A171DBD42AC7D7A7009258F5 /* ActivityAnnotation.swift in Sources */,
 				A13C74952AC7C63B00494410 /* Activity.swift in Sources */,
 				A19690942AC261FE0053B4FF /* ContentView.swift in Sources */,
 				A13C74912AC7C54900494410 /* MapView.swift in Sources */,
+				A10F7D3A2ACBC23300B951AA /* AccomodationAnnotation.swift in Sources */,
 				A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */,
 				A13C74932AC7C59200494410 /* ItineraryList.swift in Sources */,
 				A19690B12AC30C590053B4FF /* ModelData.swift in Sources */,
 				A171DBD62AC7E713009258F5 /* ActivityDetail.swift in Sources */,
 				A1AC8D552ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld in Sources */,
+				A10F7D382ACBBA4100B951AA /* Accomodation.swift in Sources */,
 				A1AC8D582ACA64D2004ED19B /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

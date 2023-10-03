@@ -11,7 +11,8 @@ struct ActivityDetail: View {
     
     @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
     
-    @EnvironmentObject var activityModelData: ActivityModelData
+    @EnvironmentObject var activityModelData: ModelData
+
     
     var activity: Activity
     
@@ -70,7 +71,7 @@ struct ActivityDetail: View {
             Divider()
                 .offset(y: -50)
             
-            if (activityModelData.isInItinerary(activity: activity)) {
+            if (activityModelData.itineraryActivities.contains(activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
                 
                 HStack {
                     Button(action: {
@@ -137,7 +138,7 @@ struct ActivityDetail: View {
 
 struct ActivityDetail_Previews: PreviewProvider {
     
-    static let activityModelData = ActivityModelData()
+    static let activityModelData = ModelData()
     
     static var previews: some View {
         ActivityDetail(activity: activityModelData.Activities[0])
