@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccomodationList: View {
+struct FavoritesList: View {
     
     @EnvironmentObject var modelData: ModelData
     
@@ -43,9 +43,9 @@ struct AccomodationList: View {
     }
 }
 
-struct AccomodationList_Previews: PreviewProvider {
+struct FavoritesList_Previews: PreviewProvider {
     static var previews: some View {
-        AccomodationList()
+        FavoritesList()
             .environmentObject(ModelData())
     }
 }

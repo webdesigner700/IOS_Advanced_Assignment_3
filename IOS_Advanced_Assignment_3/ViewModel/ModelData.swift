@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import MapKit
 import CoreData
+import SwiftUI
 
 final class ModelData: ObservableObject {
     
@@ -26,7 +27,27 @@ final class ModelData: ObservableObject {
     
     @Published var itineraryActivities = Set<Activity>()
     
+    @Published var selectedTheme: AppTheme = .light
+    
+    enum AppTheme: String, CaseIterable {
+        case light = "Light"
+        case dark = "Dark"
+        // Add more themes as needed
+    }
+    
     init() {
+        
+        print("When is this initialization function run")
+        
+        // Line 34 attempts to retreive a string value associated with the key "selctedTheme" from User Defaults. The LHS of line 34 uses optional bidning to check if there is a value for the key "selectedTheme". The retreived string is stored in savedThemeRawValue.
+        /*if let savedThemeRawValue = UserDefaults.standard.string(forKey: "SelectedTheme"),
+           // if the savedThemeRawValue matches one of the enum cases from "AppTheme", savedTheme will set to teh corresponding enum case.
+            let savedTheme = AppTheme(rawValue: savedThemeRawValue) {
+            self.selectedTheme = savedTheme // If savedTheme is successfully created, there was a previously selected theme saved in UserDefaults. In this case, the selectedTheme property of the ModelData is set to the loaded theme.
+        }
+        else {
+            self.selectedTheme = .light
+        }*/
         
         self.activityAnnotations = self.Activities.map { activity in
             
@@ -39,6 +60,33 @@ final class ModelData: ObservableObject {
         }
     }
     
+    var userDefaultColorScheme: ColorScheme {
+        
+        if let rawTheme = UserDefaults.standard.string(forKey: "SelectedTheme") {
+            let theme = ModelData.AppTheme(rawValue: rawTheme)
+            switch theme {
+            case .dark:
+                return .dark
+            case .light:
+                return .light
+            default : return .light
+            }
+            
+        }
+        return .light
+    }
+    
+    func setSelectedTheme() {
+        
+        if let savedThemeRawValue = UserDefaults.standard.string(forKey: "SelectedTheme"),
+           // if the savedThemeRawValue matches one of the enum cases from "AppTheme", savedTheme will set to teh corresponding enum case.
+            let savedTheme = AppTheme(rawValue: savedThemeRawValue) {
+            self.selectedTheme = savedTheme // If savedTheme is successfully created, there was a previously selected theme saved in UserDefaults. In this case, the selectedTheme property of the ModelData is set to the loaded theme.
+        }
+        else {
+            self.selectedTheme = .light
+        }
+    }
     
     // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not. 
     func isInItinerary(activity: Activity) -> Bool {

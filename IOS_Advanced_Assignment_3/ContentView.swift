@@ -11,6 +11,10 @@ import MapKit
 
 struct ContentView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
+    @EnvironmentObject var modelData: ModelData
+    
     var body: some View {
         
         TabView() {
@@ -27,12 +31,19 @@ struct ContentView: View {
                     Text("Itinerary")
                 }
             
-            AccomodationList()
+            FavoritesList()
                 .tabItem {
                     Image(systemName: "heart.circle")
                     Text("Favorites")
                 }
+            
+            Preferences()
+                .tabItem {
+                    Image(systemName: "seal")
+                    Text("Preferences")
+                }
         }
+        .modifier(ThemeModifier(selectedTheme: modelData.selectedTheme))
     }
 }
 

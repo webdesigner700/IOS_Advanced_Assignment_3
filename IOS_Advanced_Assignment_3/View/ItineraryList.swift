@@ -10,7 +10,7 @@ import CoreData
 
 struct ItineraryList: View {
     
-    @EnvironmentObject var activityModelData: ModelData
+    @EnvironmentObject var modelData: ModelData
     
     @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
     
