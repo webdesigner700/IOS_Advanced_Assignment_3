@@ -16,29 +16,44 @@ struct Preferences: View {
     
     var body: some View {
         
-        VStack {
-            Text("Select App Theme")
-                .font(.largeTitle)
-                .padding()
+        NavigationView() {
             
-            Button(action: {
-                print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
-                UserDefaults.standard.set("Dark", forKey: "SelectedTheme")
-                modelData.setSelectedTheme()
-                print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
-            }) {
-                Text("Set Dark Theme")
+            VStack(spacing: 20) {
+                Text("App Theme")
+                    .font(.largeTitle)
+                    .padding()
+                
+                Button(action: {
+                    print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
+                    UserDefaults.standard.set("Dark", forKey: "SelectedTheme")
+                    modelData.setSelectedTheme()
+                    print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
+                }) {
+                    Text("Set Dark Theme")
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
+                
+                Button(action: {
+                    print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
+                    UserDefaults.standard.set("Light", forKey: "SelectedTheme")
+                    modelData.setSelectedTheme()
+                    print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
+                }) {
+                    Text("Set Light Theme")
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
+                Spacer()
+                
             }
-            
-            
-            Button(action: {
-                print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
-                UserDefaults.standard.set("Light", forKey: "SelectedTheme")
-                modelData.setSelectedTheme()
-                print(UserDefaults.standard.string(forKey: "SelectedTheme") ?? "")
-            }) {
-                Text("Set Light Theme")
-            }
+            .navigationTitle("Preferences")
         }
     }
 }

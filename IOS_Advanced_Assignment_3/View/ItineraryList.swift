@@ -34,7 +34,7 @@ struct ItineraryList: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationBarTitle("Favorite Stations")
+            .navigationBarTitle("Itinerary Activities")
         }
         
     }
