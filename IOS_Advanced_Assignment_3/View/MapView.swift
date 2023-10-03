@@ -61,12 +61,24 @@ struct MapView: View {
                     }) {
                         
                         if (activityMap == true) {
-                            Image(systemName: "bed.double.circle")
-                                .imageScale(.large)
+                            
+                            HStack {
+                                
+                                Image(systemName: "bed.double.circle")
+                                    .imageScale(.large)
+                                
+                                Text("Accomodations")
+                            }
                         }
                         else {
-                            Image(systemName: "figure.run.circle")
-                                .imageScale(.large)
+                            
+                            HStack {
+                                
+                                Image(systemName: "figure.run.circle")
+                                    .imageScale(.large)
+                                
+                                Text("Activities")
+                            }
                         }
                     }
                 )

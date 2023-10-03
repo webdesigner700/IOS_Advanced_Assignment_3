@@ -36,13 +36,12 @@ struct ActivityDetail: View {
     
     var body: some View {
 
-        VStack(spacing: 16) {
+        VStack(spacing: 8) {
             
             activity.image
                 .resizable()
                 .frame(height: 250)
                 .aspectRatio(contentMode: .fit)// Ensure the image fits while preserving aspect ratio
-                //.ignoresSafeArea(edges: .top)
                 .clipShape(Rectangle())
                 .offset(y: -50)
             
