@@ -8,13 +8,44 @@
 import SwiftUI
 
 struct AccomodationList: View {
+    
+    @EnvironmentObject var modelData: ModelData
+    
+    var filteredAccomodations: [Accomodation] {
+        
+        modelData.Accomodations.filter {
+            accomodation in (accomodation.inFavorites )
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView {
+            
+            if !filteredAccomodations.isEmpty {
+                
+                List(filteredAccomodations) {
+                    accomodation in
+                    Text(accomodation.name)
+                }
+                .navigationTitle("Favourites")
+            }
+            else {
+                
+                Text("No Favorite Accomodations to display")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .padding()
+                    .navigationBarTitle("Favourites")
+            }
+
+        }
     }
 }
 
 struct AccomodationList_Previews: PreviewProvider {
     static var previews: some View {
         AccomodationList()
+            .environmentObject(ModelData())
     }
 }

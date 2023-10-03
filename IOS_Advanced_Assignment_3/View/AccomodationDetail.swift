@@ -67,6 +67,16 @@ struct AccomodationDetail: View {
                         .foregroundColor(index <= Int(accomodation.rating) ? .yellow : .gray)
                 }
             }
+            .padding(.bottom, 16.0)
+            
+            Button(action: {
+                modelData.Accomodations[accomodationIndex ?? 0].inFavorites.toggle()
+            }) {
+                Image(systemName: modelData.Accomodations[accomodationIndex ?? 0].inFavorites ? "heart.fill" : "heart")
+                    .resizable()
+                    .frame(width: 44, height: 44)
+                    .foregroundColor(modelData.Accomodations[accomodationIndex ?? 0].inFavorites ? .red : .gray)
+            }
             
             Spacer()
             
