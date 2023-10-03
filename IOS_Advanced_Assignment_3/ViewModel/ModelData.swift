@@ -18,7 +18,9 @@ final class ModelData: ObservableObject {
     
     @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: .init(latitude: -33.8837, longitude: 151.2006), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
-    @Published var annotations: [ActivityAnnotation] = []
+    @Published var activityAnnotations: [ActivityAnnotation] = []
+    
+    @Published var accomodationAnnotations: [AccomodationAnnotation] = []
     
     private var viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
     
@@ -26,9 +28,14 @@ final class ModelData: ObservableObject {
     
     init() {
         
-        self.annotations = self.Activities.map { activity in
+        self.activityAnnotations = self.Activities.map { activity in
             
             return ActivityAnnotation(activity: activity)
+        }
+        
+        self.accomodationAnnotations = self.Accomodations.map { accomodation in
+            
+            return AccomodationAnnotation(accomodation: accomodation)
         }
     }
     

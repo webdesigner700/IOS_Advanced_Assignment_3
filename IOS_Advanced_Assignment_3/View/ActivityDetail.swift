@@ -11,14 +11,14 @@ struct ActivityDetail: View {
     
     @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
     
-    @EnvironmentObject var activityModelData: ModelData
+    @EnvironmentObject var modelData: ModelData
 
     
     var activity: Activity
     
     var activityIndex: Int? {
     
-        if let index = activityModelData.Activities.firstIndex(where: {$0.id == activity.id}) {
+        if let index = modelData.Activities.firstIndex(where: {$0.id == activity.id}) {
             return index
         }
         else {
@@ -71,11 +71,11 @@ struct ActivityDetail: View {
             Divider()
                 .offset(y: -50)
             
-            if (activityModelData.itineraryActivities.contains(activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
+            if (modelData.itineraryActivities.contains(activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
                 
                 HStack {
                     Button(action: {
-                        activityModelData.toggleInItinerary(activity: activity)
+                        modelData.toggleInItinerary(activity: activity)
                     }) {
                         HStack {
                             Image(systemName: "minus.circle")
@@ -104,7 +104,7 @@ struct ActivityDetail: View {
                 
                 HStack {
                     Button(action: {
-                        activityModelData.toggleInItinerary(activity: activity)
+                        modelData.toggleInItinerary(activity: activity)
                     }) {
                         HStack {
                             Image(systemName: "plus.circle")
@@ -138,10 +138,10 @@ struct ActivityDetail: View {
 
 struct ActivityDetail_Previews: PreviewProvider {
     
-    static let activityModelData = ModelData()
+    static let modelData = ModelData()
     
     static var previews: some View {
-        ActivityDetail(activity: activityModelData.Activities[0])
-            .environmentObject(activityModelData)
+        ActivityDetail(activity: modelData.Activities[0])
+            .environmentObject(modelData)
     }
 }

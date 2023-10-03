@@ -15,9 +15,7 @@ struct MapView: View {
     // Have a Toggle Map button that switches between the Activities Map and the Accomodation Map 
     
     
-    @EnvironmentObject var activityModelData: ModelData
-    
-    @EnvironmentObject var accomodationModelData: ModelData
+    @EnvironmentObject var modelData: ModelData
     
     @State private var activityMap = true
     
@@ -29,7 +27,7 @@ struct MapView: View {
             
             if (activityMap) {
                 
-                Map(coordinateRegion: $activityModelData.region, annotationItems: activityModelData.annotations) { item in
+                Map(coordinateRegion: $modelData.region, annotationItems: modelData.activityAnnotations) { item in
                     MapAnnotation(coordinate: item.coordinate) {
                         NavigationLink( destination: ActivityDetail(activity: item.activity)) {
                             VStack {
@@ -75,9 +73,9 @@ struct MapView: View {
             }
             else if (accomodationMap) {
                 
-                Map(coordinateRegion: $accomodationModelData.region, annotationItems: activityModelData.annotations) { item in
+                Map(coordinateRegion: $modelData.region, annotationItems: modelData.accomodationAnnotations) { item in
                     MapAnnotation(coordinate: item.coordinate) {
-                        NavigationLink( destination: ActivityDetail(activity: item.activity)) {
+                        NavigationLink( destination: AccomodationDetail(accomodation: item.accomodation)) {
                             VStack {
                                 item.image
                                     .resizable()
