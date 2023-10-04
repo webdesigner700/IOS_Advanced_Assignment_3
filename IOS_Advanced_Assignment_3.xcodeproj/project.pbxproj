@@ -20,6 +20,7 @@
 		A13C74952AC7C63B00494410 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C74942AC7C63B00494410 /* Activity.swift */; };
 		A171DBD42AC7D7A7009258F5 /* ActivityAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171DBD32AC7D7A7009258F5 /* ActivityAnnotation.swift */; };
 		A171DBD62AC7E713009258F5 /* ActivityDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171DBD52AC7E713009258F5 /* ActivityDetail.swift */; };
+		A1935A052ACD46B600CC049E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1935A042ACD46B600CC049E /* Weather.swift */; };
 		A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */; };
 		A19690942AC261FE0053B4FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690932AC261FE0053B4FF /* ContentView.swift */; };
 		A19690962AC262020053B4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690952AC262020053B4FF /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		A13C74942AC7C63B00494410 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A171DBD32AC7D7A7009258F5 /* ActivityAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAnnotation.swift; sourceTree = "<group>"; };
 		A171DBD52AC7E713009258F5 /* ActivityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetail.swift; sourceTree = "<group>"; };
+		A1935A042ACD46B600CC049E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A196908E2AC261FE0053B4FF /* IOS_Advanced_Assignment_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_Advanced_Assignment_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19690912AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Advanced_Assignment_3App.swift; sourceTree = "<group>"; };
 		A19690932AC261FE0053B4FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				A171DBD32AC7D7A7009258F5 /* ActivityAnnotation.swift */,
 				A10F7D372ACBBA4100B951AA /* Accomodation.swift */,
 				A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */,
+				A1935A042ACD46B600CC049E /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A113124B2ACBFF9900145102 /* ThemeModifier.swift in Sources */,
+				A1935A052ACD46B600CC049E /* Weather.swift in Sources */,
 				A10F7D342ACBACBD00B951AA /* FavoritesList.swift in Sources */,
 				A171DBD42AC7D7A7009258F5 /* ActivityAnnotation.swift in Sources */,
 				A11312442ACBE53000145102 /* Preferences.swift in Sources */,

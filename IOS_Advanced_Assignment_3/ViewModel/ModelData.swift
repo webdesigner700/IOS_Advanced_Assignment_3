@@ -13,6 +13,10 @@ import SwiftUI
 
 final class ModelData: ObservableObject {
     
+    @Published var location = Location(name: "", region: "", country: "", lat: 0.0, lon: 0.0, tz_id: "", localtime_epoch: 0, localtime: "")
+    
+    @Published var currentWeather = CurrentWeather(last_updated_epoch: 0, last_updated: "", temp_c: 0.0, temp_f: 0.0, is_day: 0, condition: Condition(text: "", icon: "", code: 0))
+    
     @Published var Activities: [Activity] = load("ActivityData.json")
     
     @Published var Accomodations: [Accomodation] = load("AccomodationData.json")
@@ -37,18 +41,6 @@ final class ModelData: ObservableObject {
     
     init() {
         
-        print("When is this initialization function run")
-        
-        // Line 34 attempts to retreive a string value associated with the key "selctedTheme" from User Defaults. The LHS of line 34 uses optional bidning to check if there is a value for the key "selectedTheme". The retreived string is stored in savedThemeRawValue.
-        /*if let savedThemeRawValue = UserDefaults.standard.string(forKey: "SelectedTheme"),
-           // if the savedThemeRawValue matches one of the enum cases from "AppTheme", savedTheme will set to teh corresponding enum case.
-            let savedTheme = AppTheme(rawValue: savedThemeRawValue) {
-            self.selectedTheme = savedTheme // If savedTheme is successfully created, there was a previously selected theme saved in UserDefaults. In this case, the selectedTheme property of the ModelData is set to the loaded theme.
-        }
-        else {
-            self.selectedTheme = .light
-        }*/
-        
         self.activityAnnotations = self.Activities.map { activity in
             
             return ActivityAnnotation(activity: activity)
@@ -58,6 +50,8 @@ final class ModelData: ObservableObject {
             
             return AccomodationAnnotation(accomodation: accomodation)
         }
+        
+        apiRequest()
     }
     
     var userDefaultColorScheme: ColorScheme {
@@ -136,6 +130,80 @@ final class ModelData: ObservableObject {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
+    
+    func apiRequest() {
+        
+        //MARK: How does an API request work
+        
+        // First, we will create a URL object pointing to the API end point.
+        // Then, we create a Request object and we pass in the URL object.
+        // We also have to specify the header parameters and the body data that is required by the API for the request to be accepted
+        // We set the URL object, header parameters and the body data in our Request object. Then, we will fire off the request using the URLSessionDataTask class. Finally, we capture the data from the API.
+        
+        
+        // Create the URL first
+        
+        let url = NSURL(string: "https://weatherapi-com.p.rapidapi.com/current.json?q=-33.8688%2C151.2093")
+        // This let object is of optional type
+        
+        guard url != nil else {
+            print("Error in creating the url object")
+            return // Just returns if there is an error 
+        }
+        
+        // Create the URL Request
+        var request = NSMutableURLRequest(url: url! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        
+        //Specify the header
+        let headers = [
+            "X-RapidAPI-Key": "b1f523f66emsh280ccce44fa7a0dp1c29cdjsn0117ee6d5b7b",
+            "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
+        ]
+        
+        request.allHTTPHeaderFields = headers
+        
+        // Set the request type
+        
+        request.httpMethod = "GET"
+        
+        // Get the URL Session
+        
+        let session = URLSession.shared
+        
+        // Create the data task
+        
+        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            // Check for errors
+            if error == nil, let data = data {
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let weatherResponse = try decoder.decode(WeatherResponse.self, from: data)
+                    
+                    let location = weatherResponse.location
+                    let currentWeather = weatherResponse.current
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.location = location
+                        self.currentWeather = currentWeather
+                    }
+                    
+                    print(weatherResponse)
+                }
+                catch {
+                    print("Error decoding JSON: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        // Fire off the data task
+        dataTask.resume()
+    }
+        
+        // Check for error
+        
 }
 
 // The laod function loads data from a JSON file and decodes it into the specified model type
