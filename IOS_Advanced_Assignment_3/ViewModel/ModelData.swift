@@ -51,7 +51,7 @@ final class ModelData: ObservableObject {
             return AccomodationAnnotation(accomodation: accomodation)
         }
         
-        //apiRequest()
+        apiRequest()
     }
     
     var userDefaultColorScheme: ColorScheme {
