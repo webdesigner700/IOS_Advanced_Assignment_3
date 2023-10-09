@@ -26,7 +26,7 @@ struct FavoritesList: View {
                 
                 List(filteredAccomodations) {
                     accomodation in
-                    Text(accomodation.name)
+                    FavoritesRow(accomodation: accomodation)
                 }
                 .navigationTitle("Favourites")
             }

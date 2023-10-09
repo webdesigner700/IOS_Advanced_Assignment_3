@@ -12,8 +12,8 @@
 		A10F7D382ACBBA4100B951AA /* Accomodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D372ACBBA4100B951AA /* Accomodation.swift */; };
 		A10F7D3A2ACBC23300B951AA /* AccomodationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */; };
 		A10F7D3C2ACBC46000B951AA /* AccomodationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F7D3B2ACBC46000B951AA /* AccomodationDetail.swift */; };
-		A11312442ACBE53000145102 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11312432ACBE53000145102 /* Preferences.swift */; };
 		A113124B2ACBFF9900145102 /* ThemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A113124A2ACBFF9900145102 /* ThemeModifier.swift */; };
+		A131134C2ACE8E8700BD28FB /* FavoritesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131134B2ACE8E8700BD28FB /* FavoritesRow.swift */; };
 		A13C748F2AC7C4BF00494410 /* ActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = A13C748E2AC7C4BF00494410 /* ActivityData.json */; };
 		A13C74912AC7C54900494410 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C74902AC7C54900494410 /* MapView.swift */; };
 		A13C74932AC7C59200494410 /* ItineraryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C74922AC7C59200494410 /* ItineraryList.swift */; };
@@ -26,6 +26,7 @@
 		A19690962AC262020053B4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690952AC262020053B4FF /* Assets.xcassets */; };
 		A19690992AC262020053B4FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19690982AC262020053B4FF /* Preview Assets.xcassets */; };
 		A19690B12AC30C590053B4FF /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19690B02AC30C590053B4FF /* ModelData.swift */; };
+		A1A0B66B2AD3874F00E13D01 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0B66A2AD3874F00E13D01 /* WeatherView.swift */; };
 		A1AC8D552ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8D532ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld */; };
 		A1AC8D582ACA64D2004ED19B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8D572ACA64D2004ED19B /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
@@ -36,8 +37,8 @@
 		A10F7D372ACBBA4100B951AA /* Accomodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accomodation.swift; sourceTree = "<group>"; };
 		A10F7D392ACBC23300B951AA /* AccomodationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationAnnotation.swift; sourceTree = "<group>"; };
 		A10F7D3B2ACBC46000B951AA /* AccomodationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationDetail.swift; sourceTree = "<group>"; };
-		A11312432ACBE53000145102 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		A113124A2ACBFF9900145102 /* ThemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModifier.swift; sourceTree = "<group>"; };
+		A131134B2ACE8E8700BD28FB /* FavoritesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRow.swift; sourceTree = "<group>"; };
 		A13C748E2AC7C4BF00494410 /* ActivityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityData.json; sourceTree = "<group>"; };
 		A13C74902AC7C54900494410 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A13C74922AC7C59200494410 /* ItineraryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryList.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		A19690952AC262020053B4FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19690982AC262020053B4FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A19690B02AC30C590053B4FF /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		A1A0B66A2AD3874F00E13D01 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		A1AC8D542ACA63AC004ED19B /* ItineraryActivities.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItineraryActivities.xcdatamodel; sourceTree = "<group>"; };
 		A1AC8D572ACA64D2004ED19B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +132,9 @@
 				A13C74922AC7C59200494410 /* ItineraryList.swift */,
 				A171DBD52AC7E713009258F5 /* ActivityDetail.swift */,
 				A10F7D332ACBACBD00B951AA /* FavoritesList.swift */,
+				A131134B2ACE8E8700BD28FB /* FavoritesRow.swift */,
 				A10F7D3B2ACBC46000B951AA /* AccomodationDetail.swift */,
-				A11312432ACBE53000145102 /* Preferences.swift */,
+				A1A0B66A2AD3874F00E13D01 /* WeatherView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,9 +245,9 @@
 				A1935A052ACD46B600CC049E /* Weather.swift in Sources */,
 				A10F7D342ACBACBD00B951AA /* FavoritesList.swift in Sources */,
 				A171DBD42AC7D7A7009258F5 /* ActivityAnnotation.swift in Sources */,
-				A11312442ACBE53000145102 /* Preferences.swift in Sources */,
 				A13C74952AC7C63B00494410 /* Activity.swift in Sources */,
 				A19690942AC261FE0053B4FF /* ContentView.swift in Sources */,
+				A1A0B66B2AD3874F00E13D01 /* WeatherView.swift in Sources */,
 				A13C74912AC7C54900494410 /* MapView.swift in Sources */,
 				A10F7D3A2ACBC23300B951AA /* AccomodationAnnotation.swift in Sources */,
 				A19690922AC261FE0053B4FF /* IOS_Advanced_Assignment_3App.swift in Sources */,
@@ -254,6 +257,7 @@
 				A1AC8D552ACA63AC004ED19B /* ItineraryActivities.xcdatamodeld in Sources */,
 				A10F7D3C2ACBC46000B951AA /* AccomodationDetail.swift in Sources */,
 				A10F7D382ACBBA4100B951AA /* Accomodation.swift in Sources */,
+				A131134C2ACE8E8700BD28FB /* FavoritesRow.swift in Sources */,
 				A1AC8D582ACA64D2004ED19B /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

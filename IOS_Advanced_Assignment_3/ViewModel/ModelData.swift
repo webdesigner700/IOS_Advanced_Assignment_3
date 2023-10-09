@@ -51,7 +51,7 @@ final class ModelData: ObservableObject {
             return AccomodationAnnotation(accomodation: accomodation)
         }
         
-        apiRequest()
+        //apiRequest()
     }
     
     var userDefaultColorScheme: ColorScheme {
@@ -152,7 +152,7 @@ final class ModelData: ObservableObject {
         }
         
         // Create the URL Request
-        var request = NSMutableURLRequest(url: url! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        let request = NSMutableURLRequest(url: url! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         //Specify the header
         let headers = [
