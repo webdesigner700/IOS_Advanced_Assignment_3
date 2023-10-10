@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ActivityDetail: View {
     
-    @Environment(\.managedObjectContext) private var viewContext // Accessing the managed object context from the environment
-    
     @EnvironmentObject var modelData: ModelData
 
     
@@ -70,11 +68,11 @@ struct ActivityDetail: View {
             Divider()
                 .offset(y: -50)
             
-            if (modelData.itineraryActivities.contains(activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
+            if (modelData.isInItinerary(activity: activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
                 
                 HStack {
                     Button(action: {
-                        modelData.toggleInItinerary(activity: activity)
+                        modelData.deleteItineraryActivity(activity: activity)
                     }) {
                         HStack {
                             Image(systemName: "minus.circle")
@@ -103,7 +101,7 @@ struct ActivityDetail: View {
                 
                 HStack {
                     Button(action: {
-                        modelData.toggleInItinerary(activity: activity)
+                        modelData.addItineraryActivity(activity: activity)
                     }) {
                         HStack {
                             Image(systemName: "plus.circle")
@@ -126,12 +124,8 @@ struct ActivityDetail: View {
                 .offset(y: -50)
                 
             }
-            
-
-            
             Spacer()
         }
-        
     }
 }
 

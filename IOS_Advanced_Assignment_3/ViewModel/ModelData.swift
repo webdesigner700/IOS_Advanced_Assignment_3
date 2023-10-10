@@ -51,7 +51,7 @@ final class ModelData: ObservableObject {
             return AccomodationAnnotation(accomodation: accomodation)
         }
         
-        apiRequest()
+        //apiRequest()
     }
     
     var userDefaultColorScheme: ColorScheme {
@@ -82,10 +82,86 @@ final class ModelData: ObservableObject {
         }
     }
     
-    // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not. 
+    // The addItineraryActivity functiuon is working. It is letting me add the activity to the ItineraryActivities list 
+    
+    func addItineraryActivity(activity: Activity) {
+        
+        let itineraryActivity = ItineraryActivity(context: viewContext)
+        itineraryActivity.id = Int32(activity.id)
+        itineraryActivity.name = activity.name
+        itineraryActivity.city = activity.city
+        itineraryActivity.state = activity.state
+        itineraryActivity.addTime = Date()
+        
+        do {
+            try viewContext.save()
+            itineraryActivities.insert(activity)
+            print("The object has been successfully added to the CoreData Stack")
+        }
+        catch {
+            let nsError = error as NSError
+            fatalError("could not add the activity to the CoreData stack \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteItineraryActivity(activity: Activity) {
+        
+        let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest()
+        
+        // Use a predicate to find the ItineraryActivity object with the specific id
+        fetchRequest.predicate = NSPredicate(format: "id == %id", Int32(activity.id))
+        
+        do {
+            
+            // Fetch the ItineraryActivity objects matching the criteria
+            let fetchedResults = try viewContext.fetch(fetchRequest)
+            
+            // Check if an object was fetched
+            if let itineraryActivityToDelete = fetchedResults.first {
+                
+                viewContext.delete(itineraryActivityToDelete)
+                
+                try viewContext.save()
+                
+                itineraryActivities.remove(activity)
+            }
+            
+        }
+        catch {
+            let nsError = error as NSError
+            fatalError("The itinerary activity has not been deleted from the Core Data Stack: \(error.localizedDescription)")
+        }
+        
+    }
+    
     func isInItinerary(activity: Activity) -> Bool {
+        
+        // Instead of checking the persistent store you can check the itinerary activities set
+        
+        /*let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "id == %id", Int32(activity.id))
+        
+        do {
+            
+            let fetchedResults = try viewContext.fetch(fetchRequest)
+            
+            if let itineraryActivity = fetchedResults.first {
+                
+                return true
+            }
+        }
+        catch {
+            
+            print("There was an error in fetching the itinerary activity \(error.localizedDescription)")
+        }
+        
+        return false*/
+        
         return itineraryActivities.contains(activity)
     }
+    
+    // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not.
     
     // When the button "Add to Itinerary" is pressed, this function is used to add or remove the activity from the published variable itineraryActivities
     func toggleInItinerary(activity: Activity) {
@@ -201,9 +277,6 @@ final class ModelData: ObservableObject {
         // Fire off the data task
         dataTask.resume()
     }
-        
-        // Check for error
-        
 }
 
 // The laod function loads data from a JSON file and decodes it into the specified model type

@@ -8,33 +8,6 @@
 import CoreData // Import the CoreData framework
 import Foundation
 
-
-/*struct PersistenceController {
-    
-    static let shared = PersistenceController()
-    
-    private let persistentContainer: NSPersistentContainer
-    
-    var viewContext: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-    
-    var newContext: NSManagedObjectContext {
-        persistentContainer.newBackgroundContext()
-    }
-    
-    private init() {
-        
-        persistentContainer = NSPersistentContainer(name: "ItineraryActivities")
-        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
-        persistentContainer.loadPersistentStores {_, error in
-            if let error {
-                fatalError("Unable to load store with error: \(error)")
-            }
-        }
-    }
-}*/
-
 // This struct manages the persistent data storage
 struct PersistenceController {
     
