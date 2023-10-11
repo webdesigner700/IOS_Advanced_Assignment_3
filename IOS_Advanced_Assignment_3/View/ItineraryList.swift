@@ -25,31 +25,18 @@ struct ItineraryList: View {
         NavigationView {
             List {
                 ForEach(itineraryActivities) { activity in
+                    
                     VStack(alignment: .leading) {
                         Text(activity.name ?? "")
                             .font(.headline)
                         Text(activity.city ?? "")
                             .font(.subheadline)
-                    }
+                    } // change how this VStack looks
                 }
-                .onDelete(perform: deleteItems)
             }
             .navigationBarTitle("Itinerary Activities")
         }
         
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { itineraryActivities[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
     }
 }
 

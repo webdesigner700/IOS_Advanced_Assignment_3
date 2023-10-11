@@ -99,7 +99,6 @@ final class ModelData: ObservableObject {
             print("The object has been successfully added to the CoreData Stack")
         }
         catch {
-            let nsError = error as NSError
             fatalError("could not add the activity to the CoreData stack \(error.localizedDescription)")
         }
     }
@@ -128,7 +127,6 @@ final class ModelData: ObservableObject {
             
         }
         catch {
-            let nsError = error as NSError
             fatalError("The itinerary activity has not been deleted from the Core Data Stack: \(error.localizedDescription)")
         }
         
@@ -136,9 +134,7 @@ final class ModelData: ObservableObject {
     
     func isInItinerary(activity: Activity) -> Bool {
         
-        // Instead of checking the persistent store you can check the itinerary activities set
-        
-        /*let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest()
+        let fetchRequest: NSFetchRequest<ItineraryActivity> = ItineraryActivity.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "id == %id", Int32(activity.id))
         
@@ -156,9 +152,7 @@ final class ModelData: ObservableObject {
             print("There was an error in fetching the itinerary activity \(error.localizedDescription)")
         }
         
-        return false*/
-        
-        return itineraryActivities.contains(activity)
+        return false
     }
     
     // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not.
