@@ -124,6 +124,17 @@ struct ActivityDetail: View {
                 .offset(y: -50)
                 
             }
+            
+            Divider()
+            
+            Text("Description")
+                .font(.headline)
+                .offset(y: -30)
+            
+            Text(activity.description)
+                .offset(y: -30)
+                .padding(.horizontal, 8)
+            
             Spacer()
         }
     }

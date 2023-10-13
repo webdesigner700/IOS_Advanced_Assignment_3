@@ -10,14 +10,17 @@ import SwiftUI
 @main
 struct IOS_Advanced_Assignment_3App: App {
     
+    // A single source of truth instance of ModelData is created using "@StateObject"
     @StateObject private var modelData = ModelData()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
+                // Line 21 provides the ContentView and its children access to the shared ModelData instance
                 .environmentObject(ModelData())
+                // Line 24 provides the ContentView and its children access to the managed Object context defined in the PersistenceController class
                 .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
-                //.environment(\.managedObjectContext, dataController.container.viewContext) // Sets the environment value of the specified key path to the given value. In this context. the key path leads to the managed object context and the value is the viewContext of the container initialized in the DataController class
         }
     }
 }

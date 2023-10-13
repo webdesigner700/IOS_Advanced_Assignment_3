@@ -21,7 +21,6 @@ class ActivityAnnotation: NSObject, MKAnnotation, Identifiable {
     let name: String
     let city: String
     let state: String
-    let inItinerary: Bool
     let addTime: Date
     
     let activity: Activity
@@ -41,7 +40,6 @@ class ActivityAnnotation: NSObject, MKAnnotation, Identifiable {
         self.name = activity.name
         self.city = activity.city
         self.state = activity.state
-        self.inItinerary = activity.inItinerary
         self.imageName = activity.imageName
         
         self.activity = activity

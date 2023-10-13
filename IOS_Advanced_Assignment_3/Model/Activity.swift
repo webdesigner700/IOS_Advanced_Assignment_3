@@ -15,6 +15,7 @@ struct Activity: Hashable, Codable, Identifiable {
     var name: String
     var city: String
     var state: String
+    var description: String
     
     var imageName: String // The name of the image associated with the activity
     
@@ -34,6 +35,4 @@ struct Activity: Hashable, Codable, Identifiable {
         var latitude: Double
         var longitude: Double
     }
-    
-    var inItinerary: Bool
 }

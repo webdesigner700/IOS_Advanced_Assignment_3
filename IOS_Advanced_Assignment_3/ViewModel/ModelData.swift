@@ -51,7 +51,7 @@ final class ModelData: ObservableObject {
             return AccomodationAnnotation(accomodation: accomodation)
         }
         
-        //apiRequest()
+        apiRequest()
     }
     
     var userDefaultColorScheme: ColorScheme {
@@ -81,8 +81,6 @@ final class ModelData: ObservableObject {
             self.selectedTheme = .light
         }
     }
-    
-    // The addItineraryActivity functiuon is working. It is letting me add the activity to the ItineraryActivities list 
     
     func addItineraryActivity(activity: Activity) {
         
@@ -142,7 +140,7 @@ final class ModelData: ObservableObject {
             
             let fetchedResults = try viewContext.fetch(fetchRequest)
             
-            if let itineraryActivity = fetchedResults.first {
+            if fetchedResults.first != nil {
                 
                 return true
             }
@@ -153,52 +151,6 @@ final class ModelData: ObservableObject {
         }
         
         return false
-    }
-    
-    // This function checks whether the Published variable "itineraryActivities" contains a specific activity or not.
-    
-    // When the button "Add to Itinerary" is pressed, this function is used to add or remove the activity from the published variable itineraryActivities
-    func toggleInItinerary(activity: Activity) {
-        
-        if itineraryActivities.contains(activity) {
-            itineraryActivities.remove(activity)
-            setActivity(activity: activity, isInItinerary: false)
-        }
-        else {
-            itineraryActivities.insert(activity)
-            setActivity(activity: activity, isInItinerary: true)
-        }
-    }
-    
-    func setActivity(activity: Activity, isInItinerary: Bool) {
-        
-        if isInItinerary {
-            // Add to the itinerary
-            let itineraryActivity = ItineraryActivity(context: viewContext)
-            itineraryActivity.id = Int32(activity.id)
-            itineraryActivity.name = activity.name
-            itineraryActivity.city = activity.city
-            itineraryActivity.state = activity.state
-            itineraryActivity.addTime = Date()
-        }
-        else {
-            // Remove from the itinerary
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ItineraryActivity")
-            fetchRequest.predicate = NSPredicate(format: "id == %d", Int32(activity.id))
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            do {
-                try viewContext.execute(deleteRequest)
-            } catch {
-                print("Error deleting the activity from the Itinerary \(error)")
-            }
-        }
-        do {
-            try viewContext.save()
-        }
-        catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
     }
     
     func apiRequest() {
