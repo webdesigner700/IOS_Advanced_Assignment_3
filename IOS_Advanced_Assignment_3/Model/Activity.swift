@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+// This model rerepsents an Activity.
 struct Activity: Hashable, Codable, Identifiable {
     
+    // Various properties of the Activity struct.
     var id: Int
     var name: String
     var city: String
@@ -23,14 +25,17 @@ struct Activity: Hashable, Codable, Identifiable {
         Image(imageName)
     }
     
+    // A private property storing the latitude and longitude of the activity by conforming to the nested structure "Coordinates".
     private var coordinates: Coordinates
     
+    // Computed property to convert the internal Coordinates structure to a Core Location's CLLocationCoordinate2D.
     var activityCoordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: coordinates.latitude,
             longitude: coordinates.longitude)
     }
     
+    // A nested structure that holds the latitude and longitude values.
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
