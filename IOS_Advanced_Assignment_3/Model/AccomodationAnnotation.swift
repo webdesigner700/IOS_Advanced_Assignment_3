@@ -11,6 +11,7 @@ import MapKit
 
 class AccomodationAnnotation: NSObject, MKAnnotation, Identifiable {
     
+    
     var coordinate: CLLocationCoordinate2D
     
     let id: Int

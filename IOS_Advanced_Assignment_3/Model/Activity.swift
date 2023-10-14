@@ -19,9 +19,11 @@ struct Activity: Hashable, Codable, Identifiable {
     var state: String
     var description: String
     
-    var imageName: String // The name of the image associated with the activity
+    // The name of the image associated with the activity
+    var imageName: String
     
-    var image: Image { // The computed Image property to create an Image from the "imageName" property
+    // The computed Image property to create an Image from the "imageName" property
+    var image: Image {
         Image(imageName)
     }
     
