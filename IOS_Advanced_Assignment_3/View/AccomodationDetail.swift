@@ -9,12 +9,14 @@ import SwiftUI
 
 struct AccomodationDetail: View {
     
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI
     @EnvironmentObject var modelData: ModelData
     
+    // A property is declared for the accomodation whose details we want to show.
     var accomodation: Accomodation
     
     
-    // A computed property called "accomodationIndex" is defined of type Int? (optional integer). Optional integer indicates that the variable canm either hold an integer value or a nil value
+    // A computed property called "accomodationIndex" is defined of type Int? (optional integer). Optional integer indicates that the variable can either hold an integer value or a nil value
     var accomodationIndex: Int? {
         
         
@@ -34,6 +36,7 @@ struct AccomodationDetail: View {
         
         VStack {
             
+            // Display the image of the accomodation.
             accomodation.image
                 .resizable()
                 .frame(height: 250)
@@ -43,6 +46,7 @@ struct AccomodationDetail: View {
             
             VStack {
                 
+                // Display the name of the accomodation.
                 Text(accomodation.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -50,6 +54,7 @@ struct AccomodationDetail: View {
                 
                 HStack {
                     
+                    // Display the city and the price of the accomodation.
                     Text(accomodation.city)
                         .font(.headline)
                     
@@ -61,6 +66,7 @@ struct AccomodationDetail: View {
                 .padding(.horizontal, 16)
             }
             
+            // Display the star rating of the accomodation using a horizontal stack.
             HStack {
                 ForEach(1..<6) { index in
                     Image(systemName: index <= Int(accomodation.rating) ? "star.fill" : "star")
@@ -80,7 +86,6 @@ struct AccomodationDetail: View {
             
             Spacer()
             
-            
         }
     }
 }
@@ -88,8 +93,10 @@ struct AccomodationDetail: View {
 
 struct AccomodationDetail_Previews: PreviewProvider {
     
+    // Create an instance of ModelData for the preview.
     static let modelData = ModelData()
     
+    // Generate the preview by injecting the ModelData instance into the environment.
     static var previews: some View {
         AccomodationDetail(accomodation: modelData.Accomodations[0])
             .environmentObject(modelData)
