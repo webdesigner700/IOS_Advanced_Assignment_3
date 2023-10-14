@@ -25,13 +25,13 @@ class ActivityAnnotation: NSObject, MKAnnotation, Identifiable {
     let state: String
     let addTime: Date
     
-    // Reference to the associated Activity object,
+    // Reference to the associated Activity object.
     let activity: Activity
     
     // Name of the image associated with the activity.
     let imageName: String
     
-    // Computed property to fetch the corresponding image used on "imageName
+    // Computed property to fetch the corresponding image used on "imageName"
     var image: Image {
         Image(imageName)
     }
