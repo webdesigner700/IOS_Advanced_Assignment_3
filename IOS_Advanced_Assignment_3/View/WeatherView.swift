@@ -9,27 +9,33 @@ import SwiftUI
 
 struct WeatherView: View {
     
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI
     @EnvironmentObject var modelData: ModelData
     
+    // A property to store information about the current location.
     var location: Location
     
+    // A property to store the current weather details of the location.
     var currentWeather: CurrentWeather
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10) {
             
+            // Display the name of the location.
             Text(location.name)
                 .font(.largeTitle)
                 .bold()
             
             HStack() {
                 
+                // Display the latitude and longitude of the location.
                 Text("Latitude: \(location.lat)")
                 Text("Longitude: \(location.lon)")
                 
             }
             
+            // Display the timezone ID and local time of the location.
             Text("Timezone: \(location.tz_id)")
             Text("Local Time: \(location.localtime)")
             
@@ -42,11 +48,11 @@ struct WeatherView: View {
                 Text("Temperature:")
                     .font(.headline)
                 
+                // Display the current temperature in celcius and farhenhiet.
                 Text("\(currentWeather.temp_c, specifier: "%.1f")°C | \(currentWeather.temp_f, specifier: "%.1f")°F")
                     .font(.title)
             }
                 
-            
             Text("Condition: \(currentWeather.condition.text)")
             
             Text("Last Updated: \(currentWeather.last_updated)")
@@ -59,8 +65,10 @@ struct WeatherView: View {
                     .font(.headline)
                     .padding(.bottom, 10)
                 
+                // A horizontal stack containing buttons to select between a Dark and Light theme.
                 HStack(spacing: 20) {
                     
+                    // This Button sets the dark theme by setting a specific value to the UserDefaults key "SelectedTheme".
                     Button(action: {
                             UserDefaults.standard.set("Dark", forKey: "SelectedTheme")
                             modelData.setSelectedTheme()
@@ -78,7 +86,7 @@ struct WeatherView: View {
                     }
                     .frame(width: 160)
                         
-                        
+                    // This Button sets the light theme by setting a specific value to the UserDefaults key "SelectedTheme".
                     Button(action: {
                             UserDefaults.standard.set("Light", forKey: "SelectedTheme")
                             modelData.setSelectedTheme()
@@ -108,8 +116,10 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     
+    // Create an instance of "ModelData" for the preview.
     static let modelData = ModelData()
     
+    // Generate the preview by injecting the ModelData instance into the environment.
     static var previews: some View {
         WeatherView(location: modelData.location, currentWeather: modelData.currentWeather)
             .environmentObject(modelData)
