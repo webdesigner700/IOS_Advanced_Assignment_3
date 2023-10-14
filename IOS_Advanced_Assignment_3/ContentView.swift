@@ -11,7 +11,7 @@ import MapKit
 
 struct ContentView: View {
     
-    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI View file is accessed here
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_Assignment_3App SwiftUI View file is accessed here
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {

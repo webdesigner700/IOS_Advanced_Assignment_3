@@ -14,21 +14,27 @@ struct MapView: View {
     
     // Have a Toggle Map button that switches between the Activities Map and the Accomodation Map 
     
-    
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI View file is accessed here.
     @EnvironmentObject var modelData: ModelData
     
+    // State variable to control whether the activity map is displayed.
     @State private var activityMap = true
     
+    // State variable to control whether the accomodation map is displayed.
     @State private var accomodationMap = false
     
     var body: some View {
         
         NavigationView {
             
+            // Check and show the map with activity annotations.
             if (activityMap) {
                 
+                
+                // This code shows a map with the "coordinateregion" value accessed from the ModelData class (the region is Sydney) and the annotation items on the map are accessed from the coordinate values of each activity object in the Activities array in the ModelData class.
                 Map(coordinateRegion: $modelData.region, annotationItems: modelData.activityAnnotations) { item in
                     MapAnnotation(coordinate: item.coordinate) {
+                        // A NavigationLink is also created for each map annotation that takes the user to the activity detail screen which shows more information about the specific activity annotation that they click on.
                         NavigationLink( destination: ActivityDetail(activity: item.activity)) {
                             VStack {
                                 item.image
@@ -54,14 +60,14 @@ struct MapView: View {
                 .navigationBarItems(
                     
                     trailing: Button(action: {
-                                
+                         // When this button is pressed on, the state variable values change, and the activity and accomodation maps are toggled accordingly.
                         self.activityMap.toggle()
                         self.accomodationMap.toggle()
                         
                     }) {
                         
                         if (activityMap == true) {
-                            
+                            // This is the label for the button to switch to the accomodations map.
                             HStack {
                                 
                                 Image(systemName: "bed.double.circle")
@@ -71,7 +77,7 @@ struct MapView: View {
                             }
                         }
                         else {
-                            
+                            // This is the label for the button to switch to the activities map.
                             HStack {
                                 
                                 Image(systemName: "figure.run.circle")
@@ -83,10 +89,12 @@ struct MapView: View {
                     }
                 )
             }
+            // Based on the state variable values, the map with the accomodation annotations is shown.
             else if (accomodationMap) {
-                
+                // This code shows a map with the "coordinateregion" value accessed from the ModelData class (the region is Sydney) and the annotation items on the map are accessed from the coordinate values of each accomodation object in the Accomodations array in the ModelData class.
                 Map(coordinateRegion: $modelData.region, annotationItems: modelData.accomodationAnnotations) { item in
                     MapAnnotation(coordinate: item.coordinate) {
+                        // A NavigationLink is also created for each map annotation that takes the user to the accomodation detail screen which shows more information about the specific accomodation annotation that they click on.
                         NavigationLink( destination: AccomodationDetail(accomodation: item.accomodation)) {
                             VStack {
                                 item.image
@@ -111,6 +119,7 @@ struct MapView: View {
                 .navigationTitle("Accomodations")
                 .navigationBarItems(
                     
+                    // The code below is used to show the button to the user that lets them switch between the activity and the accomodation maps. 
                     trailing: Button(action: {
                                 
                         self.activityMap.toggle()
