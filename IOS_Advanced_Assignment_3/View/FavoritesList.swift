@@ -9,8 +9,10 @@ import SwiftUI
 
 struct FavoritesList: View {
     
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI
     @EnvironmentObject var modelData: ModelData
     
+    // A computed property to filter out the array of Accomodations from the ModelData class based on the inFavorites property boolean status of an Accomodation object.
     var filteredAccomodations: [Accomodation] {
         
         modelData.Accomodations.filter {
@@ -22,8 +24,10 @@ struct FavoritesList: View {
         
         NavigationView {
             
+            // If the computed property "filteredAccomodations" is not empty, i.e there are some accomodations added to the Favorites list.
             if !filteredAccomodations.isEmpty {
                 
+                // Present each item in the filteredAccomodations array as a "FavoriteRow" View. 
                 List(filteredAccomodations) {
                     accomodation in
                     FavoritesRow(accomodation: accomodation)

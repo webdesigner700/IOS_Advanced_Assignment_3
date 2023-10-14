@@ -9,33 +9,17 @@ import SwiftUI
 
 struct ActivityDetail: View {
     
+    // The shared ModelData instance which was passed to the environment on line 21 in IOS_Advanced_3App SwiftUI 
     @EnvironmentObject var modelData: ModelData
 
-    
+    // A property is declared for the activity whose details we want to show.
     var activity: Activity
-    
-    var activityIndex: Int? {
-    
-        if let index = modelData.Activities.firstIndex(where: {$0.id == activity.id}) {
-            return index
-        }
-        else {
-            
-            // The else case handles the case where no match for the index is found
-            
-            return nil
-        }
-        
-        // This computes the index of the "activity" variable by comparing it to the activityModelData accomodation array
-        
-        // The closure { $0.id == activity.id} checks if the "id" property of the "activity" variable matches the id property of any of the activity elements in the activityModelData.Activities array.
-        
-    }
     
     var body: some View {
 
         VStack(spacing: 8) {
             
+            // Displays the image of the activity
             activity.image
                 .resizable()
                 .frame(height: 250)
@@ -44,14 +28,14 @@ struct ActivityDetail: View {
                 .offset(y: -50)
             
             VStack {
-                
+                // Displays the name of the activity
                 Text(activity.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.vertical, 5)
                 
                 HStack() {
-                    
+                    // Displays the city and state of the activity
                     Text(activity.city)
                         .font(.headline)
                     
@@ -68,10 +52,13 @@ struct ActivityDetail: View {
             Divider()
                 .offset(y: -50)
             
-            if (modelData.isInItinerary(activity: activity)) { // See if the list has the activity or not. The if clause runs true if the activity is already present
+            // Conditionally display the "Remove from Itinerary" button or "Add to Itineray" button based on whether the activity is present in the persistent data storage or not. The isInItinerary function creates a fetch request and check whether the ativity in the parameter of the function is present in the persistent data storage or not.
+            
+            if (modelData.isInItinerary(activity: activity)) {
                 
                 HStack {
                     Button(action: {
+                        // If the actiivty is in the itinerary, the button shown to the user will delete the activity from the itinerary if clicked on it.
                         modelData.deleteItineraryActivity(activity: activity)
                     }) {
                         HStack {
@@ -101,6 +88,7 @@ struct ActivityDetail: View {
                 
                 HStack {
                     Button(action: {
+                        // If the actiivty is not in the activity, the button shown to the user will add the activity to the itinerary if clicked on it.
                         modelData.addItineraryActivity(activity: activity)
                     }) {
                         HStack {
@@ -142,8 +130,11 @@ struct ActivityDetail: View {
 
 struct ActivityDetail_Previews: PreviewProvider {
     
+    // Create an instance of ModelData for the preview.
+    
     static let modelData = ModelData()
     
+    // Generate the preview with modeData as an environment Object.
     static var previews: some View {
         ActivityDetail(activity: modelData.Activities[0])
             .environmentObject(modelData)
