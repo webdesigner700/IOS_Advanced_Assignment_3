@@ -22,10 +22,14 @@ struct ActivityDetail: View {
             // Displays the image of the activity
             activity.image
                 .resizable()
-                .frame(height: 250)
+                .scaledToFit() // This ensures that the image is scaled to fit while preserving its aspect ratio
+                .clipShape(Rectangle())
+                .padding(.horizontal) // This adds some padding on the sides
+                .offset(y: -50)
+                /*.frame(height: 250)
                 .aspectRatio(contentMode: .fit)// Ensure the image fits while preserving aspect ratio
                 .clipShape(Rectangle())
-                .offset(y: -50)
+                .offset(y: -50)*/
             
             VStack {
                 // Displays the name of the activity

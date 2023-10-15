@@ -60,24 +60,7 @@ final class ModelData: ObservableObject {
         }
         
         // This function fetches weather information from an external API and stores the data in the published variables "location" and "currentWeather".
-        //apiRequest()
-    }
-    
-    // "userDefaultColorScheme" is a computed property of type "ColorScheme". First, the userDefaults value of the key "SelectedTheme" is retreived. Depending on the UserDefaults value, the string is converted to a corresponding enumeration case of "AppTheme" defined on line 42. Then, the equivalent "ColorScheme" value is returned.
-    var userDefaultColorScheme: ColorScheme {
-        
-        if let rawTheme = UserDefaults.standard.string(forKey: "SelectedTheme") {
-            let theme = ModelData.AppTheme(rawValue: rawTheme)
-            switch theme {
-            case .dark:
-                return .dark
-            case .light:
-                return .light
-            default : return .light
-            }
-            
-        }
-        return .light
+        apiRequest()
     }
     
     //
